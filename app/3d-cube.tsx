@@ -1,11 +1,14 @@
 "use client";
 
+import { METHODS } from 'http';
+import { NextRequest } from 'next/server';
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 
 const CubeComponent = () => {
     const mountRef = useRef<HTMLDivElement>(null);
     const [isPlaying, setIsPlaying] = useState(false);
+    
 
     useEffect(() => {
         if (!mountRef.current) return;
@@ -38,8 +41,8 @@ const CubeComponent = () => {
         pointLight.position.set(5, 5, 5);
         scene.add(pointLight);
 
-        // TODO: Fetch rotation values from backend and apply them to the cube
-
+        // (Optional) TODO: Fetch rotation values from backend and apply them to the cube
+        
         // Animation loop
         const animate = () => {
             requestAnimationFrame(animate);
@@ -56,7 +59,7 @@ const CubeComponent = () => {
         };
     }, [isPlaying]);
 
-    // TODO: Save rotation values to backend when button is pressed
+    // (Optional) TODO: Save rotation values to backend when button is pressed
 
     return (
         <div style={{ width: '100vw', height: '100vh', position: 'relative', overflow: 'hidden' }}>

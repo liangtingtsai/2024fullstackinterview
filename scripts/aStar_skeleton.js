@@ -22,7 +22,7 @@ export function aStar(grid, start, goal) {
     // A map to store f score of each node
     const fScore = new Map();
 
-    openSet.push(start, 0);
+    openSet.push(start, heuristic(start, goal));
     gScore.set(start, 0);
     fScore.set(start, heuristic(start, goal));
 
