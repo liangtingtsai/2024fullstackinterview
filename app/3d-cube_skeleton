@@ -1,7 +1,5 @@
 "use client";
 
-import { METHODS } from 'http';
-import { NextRequest } from 'next/server';
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 
@@ -35,13 +33,13 @@ const CubeComponent = () => {
         scene.add(cube);
 
         // Add lighting
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
         scene.add(ambientLight);
-        const pointLight = new THREE.PointLight(0xffffff, 1);
-        pointLight.position.set(5, 5, 5);
+        const pointLight = new THREE.PointLight(0xffffff, 20);
+        pointLight.position.set(2, 2, 2);
         scene.add(pointLight);
 
-        // (Optional) TODO: Fetch rotation values from backend and apply them to the cube
+        // TODO: Fetch rotation values from backend and apply them to the cube
         
         // Animation loop
         const animate = () => {
@@ -59,7 +57,7 @@ const CubeComponent = () => {
         };
     }, [isPlaying]);
 
-    // (Optional) TODO: Save rotation values to backend when button is pressed
+    // TODO: Save rotation values to backend when button is pressed
 
     return (
         <div style={{ width: '100vw', height: '100vh', position: 'relative', overflow: 'hidden' }}>
