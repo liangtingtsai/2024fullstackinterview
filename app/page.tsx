@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import CubeComponent from "./3d-cube";
+import CubeComponent from "./3d-cube.tsx";
 
 
 export default function Home() {
